@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>School Demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Student List</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in ViewBag.data as List<Demo.Domain.Entittes.Student>)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Surname</td>
+                        <td>@item.Age</td>
+                        <td><a href="~/home/edit/@item.StudentId" class="btn btn-info">Edit</a><a class="btn btn-danger">Delete</a></td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+        <a href="~/home/Create" class="btn btn-success">Create Student</a>
+    </div>
+
+</body>
+</html>

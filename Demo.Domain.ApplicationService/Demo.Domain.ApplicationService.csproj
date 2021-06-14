@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Demo.Domain.Contract\Demo.Domain.Contract.csproj" />
+    <ProjectReference Include="..\Demo.Infrastructure.DAL\Demo.Infrastructure.DAL.csproj" />
+  </ItemGroup>
+
+</Project>
