@@ -1,4 +1,4 @@
-﻿
+﻿@model Student
 @{
     Layout = null;
 }
@@ -75,9 +75,7 @@
 </head>
 <body>
 
-    @{
-        Student item = ViewBag.student as Student;
-    }
+
     <form action="#" method="post">
         <div class="container">
             <h1>Edit Student</h1>
@@ -85,18 +83,19 @@
             <hr>
 
             <label for="name"><b>Name</b></label>
-            <input type="text" placeholder="Enter Email" name="name"  value="@item.Name" id="name" required>
+            <input type="text" placeholder="Enter Email" name="name" value="@Model.Name" id="name" required>
 
             <label for="Surname"><b>Surname</b></label>
-            <input type="text" placeholder="Enter Surname" name="Surname" value="@item.Surname" id="Surname" required>
+            <input type="text" placeholder="Enter Surname" name="Surname" value="@Model.Surname" id="Surname" required>
 
             <label for="Age"><b>Age</b></label>
-            <input type="text" placeholder="Age" name="Age" value="@item.Age " id="Age" required>
+            <input type="text" placeholder="Age" name="Age" value="@Model.Age " id="Age" required>
             <hr>
-            <input type="hidden" name="studentId" value="@item.StudentId" />
+            <input type="hidden" name="studentId" value="@Model.StudentId" />
 
             <button type="submit" class="registerbtn">Edit Student</button>
-.        </div>
+            .
+        </div>
 
 
     </form>

@@ -1,28 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Demo.Models;
-using Demo.Domain.Contract;
 using Demo.Domain.ApplicationService;
+using Demo.Domain.Contract;
 using Demo.Domain.Entittes;
+using Microsoft.AspNetCore.Mvc;
 
+//GET ALL
+//GET 
+//CREATE
+//EDIT  DELETE
 namespace Demo.Controllers
 {
-    public class HomeController : Controller
+    public class StudentController : Controller
     {
+
         IStudentFacade StudentFacade;
-        public HomeController()
+        public StudentController()
         {
             StudentFacade = new StudentFacade();
         }
         public IActionResult Index()
         {
-            ViewBag.data = StudentFacade.GetStudents();
-            ViewData["DATA"]= StudentFacade.GetStudents();
-            return View();
+          List<Student> data= StudentFacade.GetStudents();
+           
+            return View(data);
         }
 
         public IActionResult Create()
@@ -39,8 +42,8 @@ namespace Demo.Controllers
 
         public IActionResult Edit(int id)
         {
-            ViewBag.student= StudentFacade.GetStudent(id);
-            return View();
+           var student= StudentFacade.GetStudent(id);
+            return View(student);
         }
 
         [HttpPost]
@@ -49,6 +52,5 @@ namespace Demo.Controllers
             StudentFacade.EditStudent(student);
             return RedirectToAction("index");
         }
-
     }
 }
